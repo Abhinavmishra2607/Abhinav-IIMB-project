@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dry Fruits - Gupta Provisions</title>
+  <link rel="stylesheet" href="t4c.css">
+</head>
+<body>
+
+  <header class="header">Dry Fruits</header>
+
+    <!-- Dry Fruits -->
+    <section class="section">
+      <h2 class="section-title">Dry Fruits</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="./almonds.jpeg" alt="Almonds" class="product-img">
+          <p>Almonds</p>
+          <p>₹250 for 250g</p>
+          <a class="buy-btn">Add to cart</a>
+        </div>
+        <div class="card">
+          <img src="./kaju.jpg" alt="Kaju" class="product-img">
+          <p>Cashew (Kaju)</p>
+          <p>₹300 for 250g</p>
+          <button class="add-to-cart-btn" data-id="25" data-name="Cashew" data-price="300">Add to Cart</button>
+        </div>
+        <div class="card">
+          <img src="./kishmish.jpg" alt="Kishmish" class="product-img">
+          <p>Kishmish (Raisins)</p>
+          <p>₹250 for 250g</p>
+          <button class="add-to-cart-btn" data-id="26" data-name="Kishmish" data-price="250">Add to Cart</button>
+        </div>
+        <div class="card">
+          <img src="./pista.jpg" alt="Pista" class="product-img">
+          <p>Pistas</p>
+          <p>₹350 for 250g</p>
+          <button class="add-to-cart-btn" data-id="27" data-name="Pista" data-price="350">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+
+
+  <footer class="footer">
+    <p><a href="t5.html" style="color:white;">&larr; Back to Home</a></p>
+  </footer>
+
+  <script>
+    // Add product to cart
+    const addToCart = (product) => {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    };
+    
+    // Attach event listeners to "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const product = {
+                id: button.getAttribute('data-id'),
+                name: button.getAttribute('data-name'),
+                price: parseInt(button.getAttribute('data-price')),
+                image: button.previousElementSibling.getAttribute('src') // Assuming the image is before the button
+            };
+            addToCart(product);
+            alert(`${product.name} added to cart!`);
+        });
+    });
+    </script>
+
+
+</body>
+</html>

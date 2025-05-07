@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pooja Materials - Gupta Provisions</title>
+  <link rel="stylesheet" href="t4c.css">
+</head>
+<body>
+
+  <header class="header">Pooja Materials</header>
+
+<!-- Pooja Materials -->
+<section class="section">
+  <h2 class="section-title">Pooja Materials</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="./agarbati.jpg" alt="Agarbati" class="product-img">
+      <p>Agarbati</p>
+      <p>₹80</p>
+      <button class="add-to-cart-btn" data-id="22" data-name="Agarbati" data-price="80">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="./dhoop.webp" alt="Dhoop" class="product-img">
+      <p>Dhoop</p>
+      <p>₹50</p>
+      <button class="add-to-cart-btn" data-id="23" data-name="Dhoop" data-price="50">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="./karpoor.jpg" alt="Karpoor" class="product-img">
+      <p>Karpoor (Camphor)</p>
+      <p>₹30</p>
+      <button class="add-to-cart-btn" data-id="24" data-name="Karpoor" data-price="30">Add to Cart</button>
+    </div>
+  </div>
+</section>
+  <footer class="footer">
+    <p><a href="t5.html" style="color:white;">&larr; Back to Home</a></p>
+  </footer>
+
+
+  <script>
+    // Add product to cart
+    const addToCart = (product) => {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    };
+    
+    // Attach event listeners to "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const product = {
+                id: button.getAttribute('data-id'),
+                name: button.getAttribute('data-name'),
+                price: parseInt(button.getAttribute('data-price')),
+                image: button.previousElementSibling.getAttribute('src') // Assuming the image is before the button
+            };
+            addToCart(product);
+            alert(`${product.name} added to cart!`);
+        });
+    });
+    </script>
+
+</body>
+</html>
