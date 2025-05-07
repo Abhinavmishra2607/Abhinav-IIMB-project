@@ -38,6 +38,7 @@ body {
 /* Most Bought Products - Buy Now Button */
 .card {
     background-color: white;
+    gap: 15px;
     margin-bottom: 20px;
     padding: 15px;
     text-align: center;
@@ -242,3 +243,5 @@ body {
     row-gap: 30px; /* Increase vertical gap if needed */
   }
 }
+
+
