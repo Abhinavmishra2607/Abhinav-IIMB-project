@@ -228,3 +228,9 @@ body {
 .cart-icon:hover {
   background-color: #b5b5b5;
 }
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
