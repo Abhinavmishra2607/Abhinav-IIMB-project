@@ -147,7 +147,7 @@
     // Sending cart to WhatsApp with a specific number
     const sendToWhatsApp = () => {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let message = "my address:\nI'd like to place an order:\n";
+      let message = "my address:\nI'd like to order the following items:\n";
 
       cart.forEach(item => {
         message += `${item.name} - ₹${item.price}\n`;
