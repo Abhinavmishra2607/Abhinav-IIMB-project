@@ -29,11 +29,19 @@ body {
   }
   
   /* Grid Layout */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
+.grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.card {
+  min-width: 200px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
   
 /* Most Bought Products - Buy Now Button */
 .card {
