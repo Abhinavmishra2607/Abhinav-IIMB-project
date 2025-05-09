@@ -252,3 +252,11 @@ row-gap: 20px;
   row-gap: 30px; /* Increase vertical gap if needed */
 }
 }
+
+
+.product-img {
+  width: 100%;
+  height: 150px;           /* Fixes the height of the image */
+  object-fit: cover;       /* Ensures the image fills the area without distortion */
+  border-radius: 8px;      /* Keeps the rounded corners consistent */
+}
