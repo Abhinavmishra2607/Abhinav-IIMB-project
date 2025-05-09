@@ -52,13 +52,14 @@ body {
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 300px; 
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;            /* Let card height grow based on content */
   min-width: 200px;
   max-width: 250px;
   flex: 0 0 auto;
-  overflow: hidden; 
 }
+
 
 
 .card:hover {
@@ -94,9 +95,12 @@ body {
 
 .product-img {
   width: 100%;
-  height: auto;
+  height: 150px;
+  object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 10px; /* Adds space between image and text */
 }
+
 
 .buy-btn {
   display: inline-block;
