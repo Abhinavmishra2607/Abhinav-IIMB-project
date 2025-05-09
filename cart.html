@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping Cart - Gupta Provisions</title>
   <link rel="stylesheet" href="t4c.css">
   <style>
@@ -54,6 +55,43 @@
     .clear-cart-btn:hover {
       background-color: #ff4500;
     }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .responsive-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+      }
+      .responsive-table table {
+        width: 100%;
+        border: none;
+      }
+      .responsive-table th, .responsive-table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+      }
+      .responsive-table th {
+        background-color: transparent;
+        border-bottom: 2px solid #ddd;
+      }
+      .responsive-table td {
+        border: 1px solid #ddd;
+        border-top: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+      }
+      .responsive-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
   </style>
 </head>
 <body>
@@ -64,19 +102,21 @@
   </header>
 
   <section class="section">
-    <table>
-      <thead>
-        <tr>
-          <th>Serial No.</th>
-          <th>Product Name</th>
-          <th>Price (₹)</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items">
-        <!-- Cart items will be added dynamically here -->
-      </tbody>
-    </table>
+    <div class="responsive-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Serial No.</th>
+            <th>Product Name</th>
+            <th>Price (₹)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Cart items will be added dynamically here -->
+        </tbody>
+      </table>
+    </div>
 
     <!-- Only show this if the cart has items -->
     <div id="total-section" class="total" style="display: none;">
@@ -117,10 +157,10 @@
       cart.forEach((item, index) => {
         cartItemsHtml += `
           <tr data-index="${index}">
-            <td>${index + 1}</td>
-            <td>${item.name}</td>
-            <td>${item.price}</td>
-            <td><button class="remove-btn" data-id="${index}">Remove</button></td>
+            <td data-label="Serial No.">${index + 1}</td>
+            <td data-label="Product Name">${item.name}</td>
+            <td data-label="Price (₹)">${item.price}</td>
+            <td data-label="Action"><button class="remove-btn" data-id="${index}">Remove</button></td>
           </tr>
         `;
         totalPrice += item.price;
@@ -150,36 +190,6 @@
       let message = "my address:\nI'd like to order the following items:\n";
 
       cart.forEach(item => {
-        message += `${item.name} - ₹${item.price}\n`;
-      });
-
-      message += `\nDelivery Fee: ₹20\nTotal: ₹${parseInt(document.getElementById('total-price').innerText)}`;
-
-      const whatsappNumber = '9871828606';  // Your specific WhatsApp number
-      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message) }`;
-      window.open(whatsappLink, '_blank');
-    };
-
-    // Event listener for removing a product
-    document.getElementById('cart-items').addEventListener('click', (e) => {
-      if (e.target && e.target.classList.contains('remove-btn')) {
-        const index = e.target.getAttribute('data-id');
-        removeProduct(index);
-      }
-    });
-
-    // Event listener for clearing the cart
-    document.getElementById('clear-cart').addEventListener('click', clearCart);
-
-    // Event listener for sending to WhatsApp
-    document.getElementById('send-to-whatsapp').addEventListener('click', sendToWhatsApp);
-
-    // Initialize cart page
-    window.onload = loadCart;
-  </script>
-
-
-
-
-</body>
-</html>
+        message += `${item.name} -
+::contentReference[oaicite:13]{index=13}
+ 
